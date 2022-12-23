@@ -4,16 +4,29 @@ import data from './assets/data.js'
 
 
 function App() {
-  const html = data.map( cuadrado => {
+
+const [datos, setDatos] = React.useState(data)
+
+
+  const html = datos.map( cuadrado => {
    return <Cuadrado 
       key={cuadrado.id}
       id={cuadrado.id}
       on={cuadrado.on}
+      interruptor={interruptor}
     />
   })
 
+  function interruptor(id) {
+    setDatos(oldDatos => {
+      return oldDatos.map( cuadrado => {
+        return cuadrado.id === id ? {...cuadrado, on: !cuadrado.on} : cuadrado
+      })
+    }) }
+
+
   return (
-    <div>
+    <div className='container'>
       {html}
     </div>
   )
@@ -21,29 +34,3 @@ function App() {
 
 export default App
 
-// export default [
-//   {
-//       id: 1,
-//       on: true
-//   },   
-//   {
-//       id: 2,
-//       on: false
-//   },   
-//   {
-//       id: 3,
-//       on: true
-//   },   
-//   {
-//       id: 4,
-//       on: true
-//   },   
-//   {
-//       id: 5,
-//       on: false
-//   },   
-//   {
-//       id: 6,
-//       on: false
-//   },   
-// ]

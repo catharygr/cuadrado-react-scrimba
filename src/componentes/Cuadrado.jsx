@@ -6,8 +6,9 @@ export default function Cuadrado(props) {
   const color = props.on ? 'orange' : 'transparent'
 
 
+
   return (
-    <div style={{ backgroundColor: color }} className='cuadrado'>
+    <div onClick={ () => props.interruptor(props.id) } style={{ backgroundColor: color }} className='cuadrado'>
         <p>{props.id}</p>
 
     </div>

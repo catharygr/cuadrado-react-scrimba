@@ -13,13 +13,20 @@ body {
   height: 100vh;
 }
 
-
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  
+}
 
 
 .cuadrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 100px;
-  margin: 2rem auto;
   border: 1px solid black;
-
+  font-size: 2rem;
 }
